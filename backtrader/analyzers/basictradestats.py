@@ -177,6 +177,7 @@ class BasicTradeStats(Analyzer):
 
         o.all.pnl.total = None
         o.all.pnl.average = None
+        o.all.pnl.std = None
 
         o.all.streak.zScore = None
 
@@ -199,6 +200,7 @@ class BasicTradeStats(Analyzer):
             oWL.trades.percent = None
             oWL.pnl.total = None
             oWL.pnl.average = None
+            oWL.pnl.std = None
             oWL.pnl.median = None
             oWL.pnl.max = None
             oWL.streak.current = 0
@@ -254,6 +256,7 @@ class BasicTradeStats(Analyzer):
             oL=self.rets.lost
             oA.pnl.total = np.sum(self._all_pnl_list)
             oA.pnl.average = np.mean(self._all_pnl_list)
+            oA.pnl.std = np.std(self._all_pnl_list)
 
             # Calc stats seperately for winning and losing trades..
             for each in ['won', 'lost']:
@@ -272,6 +275,7 @@ class BasicTradeStats(Analyzer):
                     oWL.pnl.max = (np.max(pnlList) if each=='won' else np.min(pnlList))
 
                     oWL.pnl.average = np.mean(pnlList)
+                    oWL.pnl.std = np.std(pnlList)
                     oWL.pnl.median = np.median(pnlList)
                     # Streak calculations..
                     streak = eval('self._' + str(each) + 'Streak_list')

@@ -41,3 +41,8 @@ from .logreturnsrolling import *
 
 from .calmar import *
 from .periodstats import *
+
+#copy from rich-oregan
+from .kelly import *
+from .basictradestats import *
+from .traderecorder import *

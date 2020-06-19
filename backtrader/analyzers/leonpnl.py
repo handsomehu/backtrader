@@ -94,7 +94,7 @@ class AbsPnl(TimeFrameAnalyzerBase):
     )
 
     def start(self):
-        super(TimeReturn, self).start()
+        super(AbsPnl, self).start()
         if self.p.fund is None:
             self._fundmode = self.strategy.broker.fundmode
         else:
@@ -137,7 +137,7 @@ class AbsPnl(TimeFrameAnalyzerBase):
 
     def next(self):
         # Calculate the return
-        super(TimeReturn, self).next()
+        super(AbsPnl, self).next()
         # calculate PnL rather than return
         #old code, return
         #self.rets[self.dtkey] = (self._value / self._value_start) - 1.0

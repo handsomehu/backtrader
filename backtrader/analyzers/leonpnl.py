@@ -138,8 +138,5 @@ class AbsPnl(TimeFrameAnalyzerBase):
     def next(self):
         # Calculate the return
         super(AbsPnl, self).next()
-        # calculate PnL rather than return
-        #old code, return
-        #self.rets[self.dtkey] = (self._value / self._value_start) - 1.0
         self.rets[self.dtkey] = self._value - self._value_start
         self._lastvalue = self._value  # keep last value
